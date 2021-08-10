@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeWork4</title>
+   <link rel="stylesheet" href="css/index.css">
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+</head>
+<body>
+      <div class="main__container">
+        <div class="container">
+        <h1>Shopee</h1>
+        {{{body}}}
+      </div>
+
+      <div class="payment__container">
+        <div class="payment__info">
+            <h1>Receipt</h1>
+             <h3>Total : <span class="total">0</span></h3>
+        </div>
+              <button class="btn">Purchase</button>
+       </div>
+      </div>
+
+   <script>
+       let items = document.querySelectorAll('i');
+       items.forEach(item => item.onclick = (e) => {
+           payment(e.target.previousElementSibling.textContent)
+       })
+       function payment(price) {
+         let h6 = document.createElement('h4');
+         let paymentInfo = document.querySelector('.payment__info')
+         let total = document.querySelector('.total')
+         let totalPrice = parseInt(total.textContent) + parseInt(price)
+         h6.innerHTML = price
+         console.log(totalPrice)
+         total.innerHTML = totalPrice
+         paymentInfo.appendChild(h6)
+       }
+
+   </script>
+
+    
+   
+</body>
+</html>
